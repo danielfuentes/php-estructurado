@@ -1,3 +1,12 @@
+<?php
+	include_once("baseDatos.php");
+	/*foreach ($articulos as $key => $value) {
+		echo "$key  <br>";
+		foreach ($value as $key => $value) {
+			echo "$key : $value <br>";
+		}
+	}
+	exit*/;?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -38,37 +47,19 @@
 
 		<!-- productos -->
 		<section class="vip-products">
-			
-			<article class="product">
-				<div class="photo-container">
-					<img class="photo" src="images/img-pdto-1.jpg" alt="pdto 01">
+			<?php foreach ($articulos as $key => $value) :?>
+				<article class="product">
+					<div class="photo-container">
+					<img class="photo" src="images/<?=$value['imagen'];?>" alt="pdto 01">
 					<img class="special" src="images/img-nuevo.png" alt="plato nuevo">
 					<a class="zoom" href="#">Ampliar foto</a>
-				</div>
-				<h2>Lorem ipsum amet</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-				<a class="more" href="#">ver más</a>
-			</article>
-			<article class="product">
-				<div class="photo-container">
-					<img class="photo" src="images/img-pdto-2.jpg" alt="pdto 01">
-					<img class="special" src="images/img-nuevo.png" alt="plato nuevo">
-					<a class="zoom" href="#">Ampliar foto</a>
-				</div>
-				<h2>Lorem ipsum amet</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-				<a class="more" href="#">ver más</a>
-			</article>
-			<article class="product">
-				<div class="photo-container">
-					<img class="photo" src="images/img-pdto-3.jpg" alt="pdto 01">
-					<img class="special" src="images/img-nuevo.png" alt="plato nuevo">
-					<a class="zoom" href="#">Ampliar foto</a>
-				</div>
-				<h2>Lorem ipsum amet</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut recusandae eaque debitis sint necessitatibus, officia ex.</p>
-				<a class="more" href="#">ver más</a>
-			</article>
+					</div>
+					<h2><?=$value['titulo'];?></h2>
+					<p><?=$value['descripcion'] ;?></p>
+					<a class="more" href="#">ver más</a>
+				</article>				
+			<?php endforeach;?>	
+
 		</section>
 		
 		<footer class="main-footer">
